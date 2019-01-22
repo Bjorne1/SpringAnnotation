@@ -8,7 +8,9 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx ">
 
-    <bean id="person" class="com.annotation.bean.Person"  scope="prototype" >
+    <!--扫描com.annotation下的组件-->
+    <!--<context:component-scan base-package="com.annotation"/>-->
+    <bean id="person" class="com.annotation.bean.Person" scope="prototype">
         <property name="age" value="13"></property>
         <property name="name" value="wcs"></property>
     </bean>

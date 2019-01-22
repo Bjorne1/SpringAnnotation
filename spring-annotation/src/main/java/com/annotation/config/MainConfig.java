@@ -2,6 +2,7 @@ package com.annotation.config;
 
 import com.annotation.bean.Person;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @Date: Created in 2019/1/22 15:17
  */
 @Configuration
+@ComponentScan(basePackages = "com.annotation")//指定要扫描的参数,还有exclude,include等
 public class MainConfig {
 
     /**
