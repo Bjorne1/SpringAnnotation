@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 public class MainConfig {
 
     /**
-     * 默认bean name是方法名,也可以通过value设置
+     * 默认id是方法名,也可以通过value设置,类型为返回值类型
      */
     @Bean(value = "personAnnotation")
     public Person person() {
