@@ -11,13 +11,16 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class ComponentScanTest {
 
-    @Test
-    public void componentScanTest() {
-        AnnotationConfigApplicationContext ioc = new AnnotationConfigApplicationContext(MainConfig.class);
+    private void printName(AnnotationConfigApplicationContext ioc) {
         String[] beanDefinitionNames = ioc.getBeanDefinitionNames();
         for (String beanDefinitionName : beanDefinitionNames) {
             System.out.println("ioc容器中的组件:" + beanDefinitionName);
         }
+    }
+
+    @Test
+    public void componentScanTest() {
+        printName(new AnnotationConfigApplicationContext(MainConfig.class));
     }
 
     @Test
@@ -29,10 +32,13 @@ public class ComponentScanTest {
 
     @Test
     public void conditionTest() {
-        AnnotationConfigApplicationContext ioc = new AnnotationConfigApplicationContext(MainConfig2.class);
-        String[] beanDefinitionNames = ioc.getBeanDefinitionNames();
-        for (String beanDefinitionName : beanDefinitionNames) {
-            System.out.println("ioc容器中的组件:" + beanDefinitionName);
-        }
+        printName(new AnnotationConfigApplicationContext(MainConfig2.class));
     }
+
+    @Test
+    public void importTest() {
+        printName(new AnnotationConfigApplicationContext(MainConfig2.class));
+    }
+
+
 }
