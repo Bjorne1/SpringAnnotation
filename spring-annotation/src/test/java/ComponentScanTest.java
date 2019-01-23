@@ -47,4 +47,9 @@ public class ComponentScanTest {
         Blue bean = ioc.getBean(Blue.class);
         System.out.println(bean);
     }
+
+    @Test
+    public void ImportBeanDefinitionRegistrarTest() {
+        printName(new AnnotationConfigApplicationContext(MainConfig2.class));
+    }
 }
