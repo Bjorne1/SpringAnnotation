@@ -1,4 +1,6 @@
+import com.annotation.bean.Person;
 import com.annotation.config.MainConfig;
+import com.annotation.config.MainConfig2;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -16,5 +18,12 @@ public class ComponentScanTest {
         for (String beanDefinitionName : beanDefinitionNames) {
             System.out.println("ioc容器中的组件:" + beanDefinitionName);
         }
+    }
+
+    @Test
+    public void componentScanTest2() {
+        AnnotationConfigApplicationContext ioc = new AnnotationConfigApplicationContext(MainConfig2.class);
+        System.out.println("ioc容器创建完成");
+        Person person = (Person) ioc.getBean("person");
     }
 }
