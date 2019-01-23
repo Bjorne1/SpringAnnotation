@@ -1,3 +1,4 @@
+import com.annotation.bean.Blue;
 import com.annotation.bean.Person;
 import com.annotation.config.MainConfig;
 import com.annotation.config.MainConfig2;
@@ -40,5 +41,10 @@ public class ComponentScanTest {
         printName(new AnnotationConfigApplicationContext(MainConfig2.class));
     }
 
-
+    @Test
+    public void importSelectTest() {
+        AnnotationConfigApplicationContext ioc = new AnnotationConfigApplicationContext(MainConfig2.class);
+        Blue bean = ioc.getBean(Blue.class);
+        System.out.println(bean);
+    }
 }
