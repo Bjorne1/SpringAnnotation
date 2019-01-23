@@ -52,4 +52,17 @@ public class ComponentScanTest {
     public void ImportBeanDefinitionRegistrarTest() {
         printName(new AnnotationConfigApplicationContext(MainConfig2.class));
     }
+
+    @Test
+    public void factoryBeanTest() {
+        AnnotationConfigApplicationContext ioc = new AnnotationConfigApplicationContext(MainConfig2.class);
+        //ioc容器中的组件:colorFactoryBean
+        printName(ioc);
+        //但是获取到的是com.annotation.bean.Color@2b6856dd
+        Object bean = ioc.getBean("colorFactoryBean");
+        System.out.println(bean);
+        //如要获取colorFactoryBean则需加上&
+        Object bean2 = ioc.getBean("colorFactoryBean");
+        System.out.println(bean2);
+    }
 }
