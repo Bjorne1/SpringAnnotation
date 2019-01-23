@@ -2,7 +2,6 @@ package com.annotation.config;
 
 import com.annotation.bean.Person;
 import org.springframework.context.annotation.*;
-import org.springframework.stereotype.Controller;
 
 /**
  * @Description: Configuration声明这是一个配置类
@@ -13,7 +12,9 @@ import org.springframework.stereotype.Controller;
 @ComponentScans(
         value = {
                 @ComponentScan(basePackages = "com.annotation", includeFilters = {
-                        @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = {Controller.class}),
+//                        @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = {Controller.class}),//按照注解
+//                        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {BookService.class}),//按照给定类型
+                        @ComponentScan.Filter(type = FilterType.CUSTOM, classes = {MyTypeFilter.class}) //自定义
                 }, useDefaultFilters = false) //使用includeFilters时,要设置useDefaultFilters = false,其默认是true
         }
 )
