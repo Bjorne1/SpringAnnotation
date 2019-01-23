@@ -21,9 +21,18 @@ public class ComponentScanTest {
     }
 
     @Test
-    public void componentScanTest2() {
+    public void scopeLazyTest() {
         AnnotationConfigApplicationContext ioc = new AnnotationConfigApplicationContext(MainConfig2.class);
         System.out.println("ioc容器创建完成");
         Person person = (Person) ioc.getBean("person");
+    }
+
+    @Test
+    public void conditionTest() {
+        AnnotationConfigApplicationContext ioc = new AnnotationConfigApplicationContext(MainConfig2.class);
+        String[] beanDefinitionNames = ioc.getBeanDefinitionNames();
+        for (String beanDefinitionName : beanDefinitionNames) {
+            System.out.println("ioc容器中的组件:" + beanDefinitionName);
+        }
     }
 }
