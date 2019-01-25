@@ -2,11 +2,24 @@ package com.annotation.dao;
 
 import org.springframework.stereotype.Repository;
 
-/**
- * @Description:
- * @Author: WenChangSheng
- * @Date: Created in 2019/1/22 15:45
- */
+//名字默认是类名首字母小写
 @Repository
-public interface BookDao {
+public class BookDao {
+
+    private String label = "1";
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    @Override
+    public String toString() {
+        return "BookDao [label=" + label + "]";
+    }
+
+
 }
